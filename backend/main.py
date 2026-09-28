@@ -6,6 +6,7 @@ Advanced mathematical pattern detection engine
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
+from app.api.routes import router as api_router
 
 # Lifespan manager for startup/shutdown
 @asynccontextmanager
@@ -34,6 +35,9 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Include API routes
+app.include_router(api_router)
 
 # Health check endpoint
 @app.get("/health")
