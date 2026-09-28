@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: world-is-math-db
+    environment:
+      POSTGRES_USER: world_is_math
+      POSTGRES_PASSWORD: secure_password
+      POSTGRES_DB: world_is_math
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U world_is_math"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: world-is-math-cache
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  pgvector:
+    image: pgvector/pgvector:pg16
+    container_name: world-is-math-pgvector
+    environment:
+      POSTGRES_USER: world_is_math
+      POSTGRES_PASSWORD: secure_password
+      POSTGRES_DB: vectors
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgvector_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
+  redis_data:
+  pgvector_data:

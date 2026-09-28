@@ -1,0 +1,38 @@
+{
+  "expo": {
+    "name": "The World is Math",
+    "slug": "world-is-math",
+    "version": "2.0.0",
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.worldismath.app",
+      "infoPlist": {
+        "NSCameraUsageDescription": "The app needs camera access to analyze images",
+        "NSPhotoLibraryUsageDescription": "The app needs access to your photo library"
+      }
+    },
+    "android": {
+      "package": "com.worldismath.app",
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE"
+      ]
+    },
+    "plugins": [
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "The app needs camera access"
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "The app needs photos access"
+        }
+      ]
+    ]
+  }
+}

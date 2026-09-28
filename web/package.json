@@ -1,0 +1,33 @@
+{
+  "name": "world-is-math-web",
+  "version": "2.0.0",
+  "description": "Web platform for mathematical pattern discovery",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "jest",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "next": "^14.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "three": "^r158",
+    "d3": "^7.8.5",
+    "framer-motion": "^10.16.0",
+    "axios": "^1.6.2",
+    "zustand": "^4.4.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "@types/d3": "^7.4.0",
+    "typescript": "^5.3.2",
+    "jest": "^29.7.0",
+    "prettier": "^3.1.0",
+    "eslint": "^8.53.0",
+    "@next/eslint-plugin-next": "^14.0.0"
+  }
+}
